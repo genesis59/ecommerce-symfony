@@ -60,22 +60,17 @@
               >
             </li>
           </ul>
-          <form class="form-inline mt-2 mt-md-0">
-            <input
-              class="form-control mr-sm-2"
-              type="text"
-              placeholder="Votre recherche"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-              Rechercher
-            </button>
-          </form>
+          {% if app.user %}
+          <a href="{{ path('account') }}">Mon compte </a> | <a href="{{ path('app_logout') }}"> Déconnexion</a>
+          {% else %}
+          <a href="{{ path('app_login') }}">Connexion </a> | <a href="{{ path('register') }}"> Inscription</a>
+          {% endif %}
         </div>
       </nav>
     </header>
 
     <main role="main">
+      {% if block('carousel') is defined %}
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -187,12 +182,17 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
+      {% endif %}
 
       <!-- Marketing messaging and featurettes
     ================================================== -->
       <!-- Wrap the rest of the page in another container to center all the content. -->
 
-      <div class="container marketing">{% block content %}{% endblock %}</div>
+      <div
+        class="container marketing {% if block('carousel') is not defined %}mt-5{% endif %}"
+      >
+        {% block content %}{% endblock %}
+      </div>
       <!-- /.container -->
 
       <!-- FOOTER -->
