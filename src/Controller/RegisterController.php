@@ -16,7 +16,8 @@ class RegisterController extends AbstractController
 
     private $em;
 
-    public function __construct(EntityManagerInterface $entityManagerInterface){
+    public function __construct(EntityManagerInterface $entityManagerInterface)
+    {
         $this->em = $entityManagerInterface;
     }
 
@@ -32,7 +33,6 @@ class RegisterController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             
-            $user = $form->getData();
             $user->setPassword($encoder->hashPassword($form->getData(), $form->getData()->getPassword()));
             $this->em->persist($user);
             $this->em->flush();
