@@ -23,19 +23,16 @@ class RegisterController extends AbstractController
 
     #[Route('/inscription', name: 'register')]
     public function index(Request $request, UserPasswordHasherInterface $encoder): Response
-
     {
-
         $user = new User();
         $form = $this->createForm(RegisterType::class, $user);
-
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            
+        if ($form->isSubmitted() && $form->isValid()) {    
             $user->setPassword($encoder->hashPassword($form->getData(), $form->getData()->getPassword()));
             $this->em->persist($user);
             $this->em->flush();
+            return $this->redirectToRoute('login');
         }
 
         return $this->render('register/index.html.twig', [
