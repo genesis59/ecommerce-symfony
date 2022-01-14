@@ -76,7 +76,12 @@
             <a href="{{ path('register') }}"> Inscription</a>
             {% endif %}
           </div>
-          <a href="{{ path('cart') }}"><img src="{{ asset('/assets/img/shopping-cart.png') }}" alt="Mon panier" class="cart-icon"></a>
+          <a href="{{ path('cart') }}"
+            ><img
+              src="{{ asset('/assets/img/shopping-cart.png') }}"
+              alt="Mon panier"
+              class="cart-icon"
+          /></a>
         </div>
       </nav>
     </header>
@@ -221,5 +226,6 @@
     </main>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="{{ asset('assets/js/bootstrap.bundle.js') }}"></script>
+    {% block javascript %} {% endblock %}
   </body>
 </html>

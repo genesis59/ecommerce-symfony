@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Erreur de paiement - MyEcommerce{% endblock %}
+
+{% block content %}
+<h2>Erreur de paiement</h2>
+<p>
+    Bonjour <span class="font-weight-bold">{{ order.user.firstname }} {{ order.user.lastname }}</span>, <br>
+    Il semblerait que votre paiement a échoué pour votre commande <span class="font-weight-bold">n° {{ order.reference }}</span> <br>
+    Une confirmation d'erreur vient de vous être envoyée par email à l'adresse <span class="font-weight-bold">{{ order.user.email }}</span>
+</p>
+
+<hr>
+<a href="{{ path('order') }}" class="btn btn-success">Réessayer le paiement</a>
+{% endblock %}

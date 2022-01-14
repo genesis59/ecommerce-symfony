@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Confirmation de commande - MyEcommerce{% endblock %}
+
+{% block content %}
+<h2>Confirmation de commande</h2>
+<p>
+    Bonjour <span class="font-weight-bold">{{ order.user.firstname }} {{ order.user.lastname }}</span>, <br>
+    Nous vous remercions pour votre commande <span class="font-weight-bold">n° {{ order.reference }}</span> <br>
+    Une confirmation vient de vous être envoyée par email à l'adresse <span class="font-weight-bold">{{ order.user.email }}</span>
+    <hr>
+    Votre commande sera livrée par <span class="font-weight-bold">{{ order.carrierName }}</span> à l'adresse suivante : <br>
+    {{ order.delivery | raw }}
+</p>
+
+<hr>
+<p>Pour suivre votre commande, rendez-vous sur votre <a href="{{ path('account') }}">compte</a></p>
+{% endblock %}
