@@ -16,7 +16,7 @@ symfony check:requirements
 ```
 * Clé API Stripe à récupérer après la création d'un compte sur https://stripe.com/fr
 
-Une fois votre clé Stripe d'api récupérée. (Nécessaire pour le parti paiement du site)
+Une fois votre clé Stripe d'api récupérée. (Nécessaire pour la partie paiement du site)
 Remplacer la valeur de la variable d'environnement **API_KEY_STRIPE** du fichier .env 
 
 * Création d'une base de données
@@ -38,4 +38,4 @@ symfony console doctrine:migrations:migrate
 ```bash3
 symfony serve
 ```
-Rendez-vous sur l'url que cette dernière commande vous renseigne et bonne visite.
+Rendez-vous sur l'url que cette dernière commande vous renseigne.
