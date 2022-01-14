@@ -16,13 +16,13 @@ symfony check:requirements
 ```
 * Clé API Stripe à récupérer après la création d'un compte sur https://stripe.com/fr
 
-Une fois votre clé Stripe d'api récupérée. (Nécessaire pour la partie paiement du site)
-Remplacer la valeur de la variable d'environnement **API_KEY_STRIPE** du fichier .env 
+Une fois votre clé Stripe d'api récupérée (Nécessaire pour la partie paiement du site).
+Remplacer la valeur de la variable d'environnement **API_KEY_STRIPE** du fichier .env.
 
 * Création d'une base de données
 
-Renseignez **DATABASE_URL** du fichier .env en fonction de votre SGBDR puis:
-*Effacer les fichiers version du dossier migrations si besoin*
+Renseignez **DATABASE_URL** du fichier .env en fonction de votre SGBDR.
+*Effacer les fichiers version du dossier migrations si besoin*.
 
 
 ### Lancer l'environnement de dévoloppement
