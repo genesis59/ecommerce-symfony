@@ -12,11 +12,23 @@ MyEcommerce{% endblock %} {% block content %}
     <h3>{{ product.name }}</h3>
     <p>{{ product.subtitle }}</p>
     <span class="product-page-price">
-        {{ (product.price / 100) | number_format(2,',','.') }} €
+      {{ (product.price / 100) | number_format(2,',','.') }} €
     </span>
-    <hr>
+    <hr />
     <p>{{ product.description }}</p>
-    <a href="{{ path('add_to_cart',{'id': product.id}) }}" class="btn btn-primary">Ajouter au panier</a>
+    <a
+      href="{{ path('add_to_cart', { id: product.id }) }}"
+      class="btn btn-primary"
+      >Ajouter au panier</a
+    >
   </div>
+</div>
+<hr />
+<h3>Nos meilleures ventes</h3>
+<p>Découvrez les articles les plus vendus</p>
+<div class="row">
+  {% for product in products %}
+  <div class="col-lg-3">{% include 'product/single_product.html.twig' %}</div>
+  {% endfor %}
 </div>
 {% endblock %}
